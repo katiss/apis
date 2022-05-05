@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>   <!--- My css ---->
+        
+    <link href="main.css" rel="stylesheet">
+        
+        <!--- Google Font ---->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald&family=Rock+3D&display=swap" rel="stylesheet">
+    
+    </head>
+<body>
+    
+<h1>More APIs</h1>
+
+    <h2>Geolocation</h2>
+<p>Where are you? This built-in API knows.</p>
+
+<button onclick="getLocation()">Find me.</button>
+
+<p id="stalk"></p>
+    
+     <h2>Navagation</h2>
+    <button onclick="window.location.href='page2.html'">Test</button>
+    
+      <h2>Fetch</h2>
+    
+    <p id="fetch">Using fetch.</p>
+
+<script>
+const x = document.getElementById("stalk");
+
+function getLocation() {
+  try {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } catch {
+    x.innerHTML = err;
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+    
+    let file = "extras/ex.txt"
+
+fetch (file)
+.then(x => x.text())
+.then(y => document.getElementById("fetch").innerHTML = y);
+
+</script>
+
+</body>
+</html>
